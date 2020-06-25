@@ -1,0 +1,72 @@
+{
+  "name": "ticket-cli",
+  "version": "0.1.0",
+  "description": "A tool with various commands to help you debug Supreme's Ticket WASM file with ease.",
+  "keywords": [
+    "supreme",
+    "anti-bot",
+    "ticket",
+    "ticket supreme"
+  ],
+  "homepage": "https://github.com/BottingRocks/ticket-cli",
+  "bugs": "https://github.com/BottingRocks/ticket-cli/issues",
+  "repository": "BottingRocks/ticket-cli",
+  "license": "MIT",
+  "author": "BottingRocks",
+  "main": "src/index.js",
+  "bin": {
+    "ticket": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "scripts": {
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "postpack": "rm -f oclif.manifest.json",
+    "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+    "posttest": "eslint .",
+    "version": "oclif-dev readme && git add README.md",
+    "eslint": "./node_modules/eslint/bin/eslint.js src/commands/ --fix"
+  },
+  "dependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/generator": "^7.0.0-beta.51",
+    "@babel/parser": "7.4.3",
+    "@babel/template": "^7.10.1",
+    "@babel/traverse": "7.4.3",
+    "@babel/types": "7.4.0",
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "ast-types": "0.12.3",
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "cli-ux": "^5.4.6",
+    "cors": "^2.8.5",
+    "lodash": "^4.17.15",
+    "prepack": "^0.2.54",
+    "recast": "^0.18.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "chai": "^4",
+    "eslint": "^7.2.0",
+    "eslint-config-oclif": "^3.1",
+    "eslint-plugin-sort-requires": "^2.1.0",
+    "globby": "^10",
+    "mocha": "^5",
+    "nyc": "^14"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "ticket",
+    "plugins": []
+  }
+}
